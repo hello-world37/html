@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Page</title>
+</head>
+<body>
+<h1>DEBUG PAGE</h1>
+
+<p id="js">JS not executed yet.</p>
+<p id="fetch">Fetch test not run.</p>
+
+<script>
+document.getElementById("js").innerText = "JS executed ✔";
+
+// Test outbound fetch
+fetch("https://httpbin.org/get")
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById("fetch").innerText =
+            "Fetch outbound ✔ (Allowed)";
+    })
+    .catch(e => {
+        document.getElementById("fetch").innerText =
+            "Fetch outbound ❌ (Blocked)";
+    });
+</script>
+
+</body>
+</html>
